@@ -17,10 +17,15 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     @PostMapping("/payment")
-    public ResponseEntity makePayment(@Valid @RequestBody PaymentRequestDTO paymentRequestDTO){
+    public ResponseEntity<PaymentService.Transaction> makePayment(@Valid @RequestBody PaymentRequestDTO paymentRequestDTO) {
 
-        paymentService.performTransaction(paymentRequestDTO.getAmount(), paymentRequestDTO.getSenderAccountId(), paymentRequestDTO.getReceiverAccountId());
+        PaymentService.Transaction transaction = paymentService.performTransaction(
+                paymentRequestDTO.getAmount(),
+                paymentRequestDTO.getSenderAccountId(),
+                paymentRequestDTO.getReceiverAccountId()
+        );
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok()
+                .body(transaction);
     }
 }

@@ -1,8 +1,6 @@
 package com.rindago.payment.domain;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -10,9 +8,11 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "payment")
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")

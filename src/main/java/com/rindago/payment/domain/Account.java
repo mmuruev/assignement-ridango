@@ -1,7 +1,7 @@
 package com.rindago.payment.domain;
 
 import com.rindago.payment.config.Constants;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
@@ -12,7 +12,10 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "account")
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")

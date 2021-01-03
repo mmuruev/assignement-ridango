@@ -20,6 +20,6 @@ public class PaymentRequestDTO {
     private  Long receiverAccountId;
 
     @NotNull
-    @Min(0)
+    @Min(value = 0)
     private BigDecimal amount;
 }
